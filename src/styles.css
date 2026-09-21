@@ -1,0 +1,142 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #262b2a;
+  background: #f4f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; }
+
+.app {
+  min-height: 100svh;
+  padding: 48px 24px 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-header { text-align: center; }
+.eyebrow {
+  margin: 0 0 12px;
+  color: #6c746b;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 2.4px;
+}
+h1 { margin: 0; font-size: clamp(40px, 7vw, 54px); font-weight: 650; letter-spacing: -2.8px; line-height: 1.1; }
+h1 span { color: #229562; }
+.subtitle { margin: 14px 0 0; color: #6b726c; font-size: 14px; }
+.stoplight { width: 100%; max-width: 420px; }
+
+.signal-scene {
+  display: flex;
+  justify-content: center;
+  padding: 36px 85px 30px 0;
+}
+.signal-housing {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 176px;
+  padding: 22px;
+  border: 1px solid #414746;
+  border-radius: 29px;
+  background: linear-gradient(130deg, #343b39, #242a28);
+  box-shadow: 0 16px 30px -18px #252e2859, inset 0 2px 0 #ffffff14;
+}
+.signal-row { position: relative; }
+.light {
+  width: 130px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid #1e2422;
+  box-shadow: inset 0 5px 10px #00000040, 0 1px 0 #ffffff0d;
+}
+.light--red { background: #623733; }
+.light--yellow { background: #625532; }
+.light--green { background: #294b3a; }
+.light--red.light--on {
+  background: #f15a4e;
+  box-shadow: inset 0 2px 8px #ffc7b866, 0 0 25px #f15a4e38;
+}
+.light--yellow.light--on {
+  background: #f4c84c;
+  box-shadow: inset 0 2px 8px #fff3b866, 0 0 25px #f4c84c38;
+}
+.light--green.light--on {
+  background: #39cb81;
+  box-shadow: inset 0 2px 8px #b8ffd666, 0 0 25px #39cb8138;
+}
+.light-label {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 33px);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #6b726c;
+}
+.label-line { width: 24px; height: 1px; background: #bfc3b9; }
+.light-label--on { color: #262b2a; }
+.light-label--on .label-line { background: #69786c; }
+.color-name { display: block; font-size: 14px; font-weight: 600; text-transform: capitalize; }
+.light-state { display: block; margin-top: 5px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+.light-label--on .light-state { font-weight: 700; }
+
+.current-state {
+  min-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.current-state-detail { color: #6b726c; font-size: 12px; font-weight: 400; }
+.status-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; }
+.status-dot--green { background: #229562; }
+.status-dot--yellow { background: #d6a520; }
+.status-dot--red { background: #dc554b; }
+.sequence {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 24px 0 0;
+  padding: 7px;
+  list-style: none;
+  border: 1px solid #dddfd5;
+  border-radius: 12px;
+  background: #eaece3;
+}
+.sequence-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex: 1;
+  padding: 11px 10px;
+  border-radius: 7px;
+  color: #5e685d;
+  font-size: 12px;
+}
+.sequence-step--active { background: #fafbf6; box-shadow: 0 1px 3px #24371c12; color: #26352a; }
+.sequence-name { text-transform: capitalize; }
+.sequence-duration { margin-left: 3px; font-variant-numeric: tabular-nums; font-weight: 650; }
+.app-footer { margin-top: 19px; color: #70776c; font-size: 11px; }
+
+@media (max-width: 400px) {
+  .app { padding: 32px 16px 24px; }
+  .signal-scene { padding-right: 78px; }
+  .signal-housing { width: 156px; padding: 17px; gap: 14px; }
+  .light { width: 120px; }
+  .light-label { left: calc(100% + 25px); gap: 8px; }
+  .label-line { width: 16px; }
+  .sequence { gap: 2px; padding: 5px; }
+  .sequence-step { gap: 5px; padding: 10px 5px; font-size: 11px; }
+}
